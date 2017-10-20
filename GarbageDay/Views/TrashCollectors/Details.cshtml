@@ -1,0 +1,77 @@
+﻿@model GarbageDay.Models.TrashCollector
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<h2>Details</h2>
+
+<div>
+    <h2>@Model.Name</h2>
+    <h4>TrashCollector</h4>
+</div>
+<html>
+<head>
+    <style>
+        #map{
+            height: 400px;
+            width: 100%;
+             }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <ul>
+        <li>Zip Code Servicing: @Model.Customer.AddressBook.customerZipCode</li>
+        <li>Customer PickUp Dates: </li>
+    </ul>
+    <script>
+        function initMap(lat, lng) {
+            if(@Model.Customer.AddressBook.customerZipCode == "51234")
+            {
+                lat = 43.190278
+                lng = -96.003611
+            }
+            else if (@Model.Customer.AddressBook.customerZipCode == "52341")
+            {
+                lat = 42.099167
+                lng = -91.716944
+            }
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: {lat, lng},
+                    zoom: 15
+                });
+                var geocoder = new google.maps.Geocoder;
+                var infowindow = new google.maps.InfoWindow;
+
+                document.getElementById('submit').addEventListener('click', function () {
+                    geocodePlaceId(geocoder, map, infowindow);
+                });
+            }
+            function geocodePlaceId(geocoder, map, infowindow) {
+                var placeId = document.getElementById('place-id').value;
+                geocoder.geocode({ 'placeId': placeId }, function (results, status) {
+                    if (status === 'OK') {
+                        if (results[0]) {
+                            map.setZoom(15);
+                            map.setCenter(results[0].geometry.location);
+                            var marker = new google.maps.Marker({
+                                map: map,
+                                position: results[0].geometry.location
+                            });
+                            infowindow.setContent(results[0].formatted_address);
+                            infowindow.open(map, marker);
+                        } else {
+                            window.alert('No results found');
+                        }
+                    } else {
+                        window.alert('Geocoder failed due to: ' + status);
+                    }
+                });
+            }
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaLHWLfupl9Gk9V1rjEW2GH6a2vvcZiOU&callback=initMap">
+    </script>
+</body>
+</html>
+
