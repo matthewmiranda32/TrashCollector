@@ -267,6 +267,10 @@
     <Content Include="Views\TrashCollectors\Edit.cshtml" />
     <Content Include="Views\TrashCollectors\Index.cshtml" />
     <Content Include="Views\Shared\DetailView.cshtml" />
+    <Content Include="Views\Manage\SetPickupDay.cshtml" />
+    <Content Include="Views\Manage\ChangePickupDay.cshtml" />
+    <Content Include="Views\Shared\CustomerLayout.cshtml" />
+    <Content Include="Views\Shared\TrashCollector.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

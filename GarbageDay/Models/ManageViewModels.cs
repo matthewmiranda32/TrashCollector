@@ -7,6 +7,7 @@ namespace GarbageDay.Models
 {
     public class IndexViewModel
     {
+        public bool HasPickupDay { get; set; }
         public bool HasPassword { get; set; }
         public IList<UserLoginInfo> Logins { get; set; }
         public string PhoneNumber { get; set; }
@@ -58,24 +59,33 @@ namespace GarbageDay.Models
         public string ConfirmPassword { get; set; }
     }
 
-    public class AddPhoneNumberViewModel
+    public class SetPickupDayViewModel
     {
         [Required]
-        [Phone]
-        [Display(Name = "Phone Number")]
-        public string Number { get; set; }
+        [Display(Name = "Pickup Day")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
+        public string Pickup_Day { get; set; }
+
+        [Required]
+        [Display(Name = "New Pickup Day")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
+        public string New_Pickup_Day { get; set; }
     }
-
-    public class VerifyPhoneNumberViewModel
+    public class ChangePickupDayViewModel
     {
         [Required]
-        [Display(Name = "Code")]
-        public string Code { get; set; }
+        [Display(Name = "Pickup Day")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
+        public string Pickup_Day { get; set; }
 
         [Required]
-        [Phone]
-        [Display(Name = "Phone Number")]
-        public string PhoneNumber { get; set; }
+        [Display(Name = "New Pickup Day")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
+        public string New_Pickup_Day { get; set; }
     }
 
     public class ConfigureTwoFactorViewModel

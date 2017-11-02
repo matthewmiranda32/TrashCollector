@@ -65,10 +65,31 @@ namespace GarbageDay.Models
     public class RegisterViewModel
     {
         [Required]
+        public string UserRoles { get; set; }
+
+        [Required]
+        [Display(Name = "Name")]
+        public string Name { get; set; }
+        [Required]
+        [Display(Name = "Street Address")]
+        public string streetAddress { get; set; }
+        [Required]
+        [Display(Name = "City")]
+        public string city { get; set; }
+        [Required]
+        [Display(Name = "State")]
+        public string state { get; set; }
+        [Required]
+        [Display(Name = "Zip Code")]
+        public string customerZipCode { get; set; }
+        [Display(Name = "Pickup Day")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
+        public string Pickup_Day { get; set; }
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
-
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
@@ -79,6 +100,7 @@ namespace GarbageDay.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
     }
 
     public class ResetPasswordViewModel

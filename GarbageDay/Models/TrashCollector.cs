@@ -10,7 +10,6 @@ namespace GarbageDay.Models
     public class TrashCollector
     {
         [Key]
-        
         public int id { get; set; }
 
         [Display(Name = "Name")]

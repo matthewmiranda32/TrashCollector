@@ -22,7 +22,7 @@
     <div id="map"></div>
     <ul>
         <li>Zip Code Servicing: @Model.Customer.AddressBook.customerZipCode</li>
-        <li>Customer PickUp Dates: </li>
+        <li>Customer PickUp Dates: @Model.Customer.Pickup_Day</li>
     </ul>
     <script>
         function initMap(lat, lng) {
@@ -56,7 +56,7 @@
                             map.setCenter(results[0].geometry.location);
                             var marker = new google.maps.Marker({
                                 map: map,
-                                position: results[0].geometry.location
+                                position: lat, lng
                             });
                             infowindow.setContent(results[0].formatted_address);
                             infowindow.open(map, marker);

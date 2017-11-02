@@ -26,6 +26,7 @@ namespace GarbageDay.Controllers
         public ActionResult Details(int id)
         {
             //var trashCollectors = db.TrashCollector;
+
             var zipCodes = db.TrashCollector.Include(m => m.Customer.AddressBook).SingleOrDefault(m => m.id == id);
             return View(zipCodes);
         }

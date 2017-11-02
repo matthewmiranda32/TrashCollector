@@ -86,6 +86,11 @@ namespace GarbageDay
             }
             return manager;
         }
+
+        internal Task ChangePickupDayAsync(string v, string pickup_Day, string new_Pickup_Day)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     // Configure the application sign-in manager which is used in this application.
