@@ -23,7 +23,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.ActionLink(item.Name, "Details", "TrashCollectors", new { id = item.id }, null)
+            @Html.ActionLink(item.Name, "Details", "Trash Collectors", new { id = item.id }, null)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Customer.AddressBook.customerZipCode)

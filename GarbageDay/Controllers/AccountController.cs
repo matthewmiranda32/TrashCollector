@@ -167,7 +167,7 @@ namespace GarbageDay.Controllers
 
                     if (model.UserRoles == "Trash Collectors")
                     {
-                        return RedirectToAction("Create", "TrashCollectors");
+                        return RedirectToAction("Create", "Trash Collectors");
                     }
 
                     return RedirectToAction("Index", "Home");
